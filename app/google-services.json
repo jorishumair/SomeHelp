@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "194788600111",
+    "firebase_url": "https://somehelp-16043.firebaseio.com",
+    "project_id": "somehelp-16043",
+    "storage_bucket": "somehelp-16043.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194788600111:android:d2c5be60ff4f115c",
+        "android_client_info": {
+          "package_name": "com.lannasoftware.somehelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194788600111-cblsuao9l9e3r1mnf6fuqgplrpmr4u3f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lannasoftware.somehelp",
+            "certificate_hash": "49c0c85e81a7f799f2e2ea6fac208171ac82d72a"
+          }
+        },
+        {
+          "client_id": "194788600111-4c3eqmjmht5gqe1igkerdocofeq9s4gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lannasoftware.somehelp",
+            "certificate_hash": "29e015dfbbea353bd240f58845a21ab3f4a7b988"
+          }
+        },
+        {
+          "client_id": "194788600111-uu3nph90vfbv9r2lua2sbo6uns870vi0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASr3M2_Fsvnpc73w_RwixxF2fyBgGVgz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194788600111-uu3nph90vfbv9r2lua2sbo6uns870vi0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<resources>
+    <string name="bienvenue">Bienvenue</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="compte_cree">Compte crée</string>
+    <string name="creation_de_votre_profil">Création de votre profil</string>
+    <string name="bonjour">Bonjour</string>
+    <string name="voir_profil">Voir et modifier le profil</string>
+    <string name="se_deconnecter">Se déconnecter</string>
+    <string name="aurevoir">Aurevoir</string>
+    <string name="membre_depuis">Membre depuis</string>
+    <string name="a_propos">À propos</string>
+    <string name="votre_profil">Votre profil</string>
+    <string name="modifier_votre_profil">Modifier votre profil</string>
+    <string name="modifier_le_nom">Modifier le nom</string>
+    <string name="a_propos_de_moi">À propos de moi</string>
+    <string name="ajouter_de_linformation">Ajouter de l\'information</string>
+    <string name="info_importantes">Informations importantes</string>
+    <string name="sexe">Sexe</string>
+    <string name="email">E-mail</string>
+    <string name="telephone">Téléphone</string>
+    <string name="piece_identite">Pièce d\'identité officielle</string>
+    <string name="ok">OK</string>
+    <string name="modification_effectuee">Modification effectuée</string>
+    <string name="veuillez_indiquer_firstname">Veuillez indiquer votre prénom</string>
+    <string name="veuillez_indiquer_lastname">Veuillez indiquer votre nom</string>
+    <string name="informations_vous">Ajouter des informations vous concernant</string>
+    <string name="indiquez_email">Indiquez votre adresse E-mail</string>
+    <string name="ville">Ville</string>
+    <string name="langue">Langue</string>
+
+    <string name="app_name">SomeHelp</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
+
+    <!--<string name="default_web_client_id" translatable="false">AIzaSyDAVzOVQTs8QXqu0PFOuE4MC4MJhIcVsu8</string>-->
+    <string name="title_activity_create_advertisement">CreateAdvertisement</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+
+    <string name="create_an_advertisement_title">Créer une annonce</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
