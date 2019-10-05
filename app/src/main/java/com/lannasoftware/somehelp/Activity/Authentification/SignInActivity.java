@@ -1,10 +1,7 @@
 package com.lannasoftware.somehelp.Activity.Authentification;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,16 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.lannasoftware.somehelp.Activity.MainActivity;
-import com.lannasoftware.somehelp.Activity.SplashScreenHello;
 import com.lannasoftware.somehelp.Entity.User;
 import com.lannasoftware.somehelp.Helper.HelperApp;
 import com.lannasoftware.somehelp.R;
@@ -90,14 +82,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 sContentEditNom = edit_nom.getText().toString();
                 sContentEditPrenom = edit_prenom.getText().toString();
 
-                if(CheckFormulary())
+                if(ControlFormulary())
                     CreateProfile();
 
                 break;
         }
     }
 
-    private Boolean CheckFormulary()
+    private Boolean ControlFormulary()
     {
         Boolean bFormularyOK = true;
 
@@ -146,7 +138,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         cDaoUser.Open();
 
                         String sStayConnected = "1";
-                        User user = new User (sContentEditNom, sContentEditPrenom, sStayConnected, sDateNow, documentReference.getId());
+                        User user = new User (sContentEditNom, sContentEditPrenom, sStayConnected, sDateNow, "0", documentReference.getId());
 
                         cDaoUser.CreateSimpleUser(user);
                         cDaoUser.Close();

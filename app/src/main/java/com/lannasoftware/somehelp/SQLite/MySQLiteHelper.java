@@ -20,11 +20,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String COL_USER_EMAIL = "col_user_email";
     public static final String COL_USER_TELEPHONE = "col_user_telephone";
     public static final String COL_USER_PIECE_IDENTITE = "col_user_piece_identite";
+    public static final String COL_USER_MODE_HOST = "col_user_mode_host";
     public static final String COL_USER_LANGUE = "col_user_langue";
 
     // Nom donn�e � ma base de donn�es et version de celle-ci
     private static final String DATABASE_NAME = "somehelplocaldb.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     // Requ�te SQL cr�ant ma base de donn�es et les champs la constituant
     private static final String DATABASE_CREATE_USER_DB
@@ -40,6 +41,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COL_USER_EMAIL + " text, "
             + COL_USER_TELEPHONE + " text, "
             + COL_USER_PIECE_IDENTITE + " text, "
+            + COL_USER_MODE_HOST + " text not null, "
             + COL_USER_LANGUE + " text);";
 
     public MySQLiteHelper(Context context) {

@@ -19,22 +19,25 @@ public class User implements Parcelable {
     private String sEmail;
     private String sTelephone;
     private String sPieceIdentite;
+    private String sModeHost;
     private String sLangue;
 
     public User(){
     }
 
-    public User(String sNom, String sPrenom, String sStayConnected, String sMemberSince, String sIdFirestore)
+    public User(String sNom, String sPrenom, String sStayConnected, String sMemberSince, String sModeHost, String sIdFirestore)
     {
         this.sLastname = sNom;
         this.sFirstname = sPrenom;
         this.sStayConnected = sStayConnected;
         this.sMemberSince = sMemberSince;
+        this.sModeHost = sModeHost;
         this.sIdFirestore = sIdFirestore;
     }
 
     public User(String sNom, String sPrenom, String sStayConnected, String sMemberSince, String sIdFirestore, String sAbout,
-                String sSexe, String sVille, String sEmail, String sTelephone, String sPieceIdentite, String sLangue)
+                String sSexe, String sVille, String sEmail, String sTelephone, String sPieceIdentite, String sModeHost,
+                String sLangue)
     {
         this.sLastname = sNom;
         this.sFirstname = sPrenom;
@@ -47,6 +50,7 @@ public class User implements Parcelable {
         this.sEmail = sEmail;
         this.sTelephone = sTelephone;
         this.sPieceIdentite = sPieceIdentite;
+        this.sModeHost = sModeHost;
         this.sLangue = sLangue;
     }
 
@@ -179,5 +183,13 @@ public class User implements Parcelable {
 
     public void setsLangue(String sLangue) {
         this.sLangue = sLangue;
+    }
+
+    public String getsModeHost() {
+        return sModeHost;
+    }
+
+    public void setsModeHost(String sModeHost) {
+        this.sModeHost = sModeHost;
     }
 }

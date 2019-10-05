@@ -1,8 +1,9 @@
 package com.lannasoftware.somehelp.Activity;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,29 +13,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lannasoftware.somehelp.Activity.Fragments.FragmentHome1;
 import com.lannasoftware.somehelp.Activity.Fragments.FragmentHome2;
 import com.lannasoftware.somehelp.Activity.Fragments.FragmentHome3;
 import com.lannasoftware.somehelp.Activity.Fragments.FragmentHome4;
+import com.lannasoftware.somehelp.Activity.Fragments.FragmentHome5;
+import com.lannasoftware.somehelp.Entity.User;
 import com.lannasoftware.somehelp.Helper.HelperApp;
 import com.lannasoftware.somehelp.Helper.ViewPager;
 import com.lannasoftware.somehelp.R;
+import com.lannasoftware.somehelp.SQLite.DAOUser;
 
 import java.util.List;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /*
-    FloatingActionButton cFloatingButtonItem1;
-    FloatingActionButton cFloatingButtonItem2;
-    FloatingActionButton cFloatingButtonItem3;
-*/
     Context mContext;
+
+    DAOUser cDaoUser;
+    User currentUserSQLite;
 
     private TabLayout cTabLayout;
     private ViewPager cViewPager;
+
+    String sHostMode = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mContext = this;
 
-        cTabLayout = (TabLayout) findViewById(R.id.tabs);
-        cViewPager = (ViewPager) findViewById(R.id.viewpager);
+        cTabLayout = findViewById(R.id.tabs);
+        cViewPager = findViewById(R.id.viewpager);
 
         cViewPager.setEnableSwipe(true);
+
+        cDaoUser = new DAOUser(mContext);
+        cDaoUser.Open();
+        currentUserSQLite = cDaoUser.GetUserById(1);
+        sHostMode = currentUserSQLite.getsModeHost();
+        cDaoUser.Close();
+
+        Toast.makeText(mContext, sHostMode + "", Toast.LENGTH_SHORT).show();
 
         List fragments = new Vector();
         Bundle args_fragment_1 = new Bundle();
@@ -56,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragments.add(Fragment.instantiate(mContext, FragmentHome1.class.getName()));
         fragments.add(Fragment.instantiate(mContext, FragmentHome2.class.getName()));
         fragments.add(Fragment.instantiate(mContext, FragmentHome3.class.getName()));
-        fragments.add(Fragment.instantiate(mContext, FragmentHome4.class.getName(), args_fragment_1));
+        fragments.add(Fragment.instantiate(mContext, FragmentHome4.class.getName()));
+        fragments.add(Fragment.instantiate(mContext, FragmentHome5.class.getName(), args_fragment_1));
 
         SampleFragmentPagerAdapter pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), fragments);
         cViewPager.setAdapter(pagerAdapter);
@@ -67,46 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             TabLayout.Tab tab = cTabLayout.getTabAt(i);
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
-
-        /*
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
-
-        /*
-        cFloatingButtonItem1 = findViewById(R.id.floatingActionButton_item1);
-        cFloatingButtonItem2 = findViewById(R.id.floatingActionButton_item2);
-        cFloatingButtonItem3 = findViewById(R.id.floatingActionButton_item3);
-
-        cFloatingButtonItem1.setOnClickListener(this);
-        cFloatingButtonItem2.setOnClickListener(this);
-        cFloatingButtonItem3.setOnClickListener(this);
-        */
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-/*
-            case R.id.floatingActionButton_item1 :
-                Intent CreateAdvertisement1 = new Intent(MainActivity.this, CreateAdvertisementParentFragment.class);
-                CreateAdvertisement1.putExtra("annonceType", CEnum.AnnonceType.DemanderService.name());
-                CreateAdvertisement1.putExtra("annonceName", cFloatingButtonItem1.getLabelText());
-                startActivity(CreateAdvertisement1);
-                break;
-            case R.id.floatingActionButton_item2 :
-                Intent CreateAdvertisement2 = new Intent(MainActivity.this, CreateAdvertisementParentFragment.class);
-                CreateAdvertisement2.putExtra("annonceType", CEnum.AnnonceType.ProposerService.name());
-                CreateAdvertisement2.putExtra("annonceName", cFloatingButtonItem2.getLabelText());
-                startActivity(CreateAdvertisement2);
-                break;
 
-            case R.id.floatingActionButton_item3 :
-                Intent CreateAdvertisement3 = new Intent(MainActivity.this, CreateAdvertisementParentFragment.class);
-                CreateAdvertisement3.putExtra("annonceType", CEnum.AnnonceType.VendreArticle.name());
-                CreateAdvertisement3.putExtra("annonceName", cFloatingButtonItem3.getLabelText());
-                startActivity(CreateAdvertisement3);
-                break;
-                */
         }
     }
 
@@ -117,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         private int[] tabIcons = {
                 R.drawable.tab_icon1,
                 R.drawable.tab_icon2,
+                R.drawable.tab_icon3,
                 R.drawable.tab_icon3,
                 R.drawable.tab_icon4
         };
@@ -129,10 +110,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public View getTabView(int position) {
 
             View v = LayoutInflater.from(mContext).inflate(R.layout.custom_tab, null);
-            ImageView img = (ImageView) v.findViewById(R.id.imgView);
+            ImageView img = v.findViewById(R.id.imgView);
             img.setImageResource(tabIcons[position]);
 
-            TextView tv = (TextView) v.findViewById(R.id.textView);
+            TextView tv = v.findViewById(R.id.textView);
 
             HelperApp.SetFont(mContext, tv,"Roboto-Black.ttf");
 
@@ -147,6 +128,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tv.setText("VOYAGES");
                     break;
                 case 3:
+                    tv.setText("MESSAGES");
+                    break;
+                case 4:
                     tv.setText("PROFIL");
                     break;
             }

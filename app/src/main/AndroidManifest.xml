@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -28,6 +29,15 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <activity
+            android:name=".Activity.NewAdvertisement"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.SearchLevel1Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.MainSearchActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.Edition.NameEditionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -42,10 +52,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.Edition.ProfilEditionActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Activity.CreateAdvertisementParentFragment"
-            android:label="@string/title_activity_create_advertisement"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.Authentification.SignInActivity"

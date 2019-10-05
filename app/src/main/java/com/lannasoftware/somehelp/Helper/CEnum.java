@@ -5,7 +5,7 @@ public class CEnum {
     public enum AnnonceType {
         DemanderService,
         ProposerService,
-        VendreArticle,
+        LouerArticle,
         None
     }
 }

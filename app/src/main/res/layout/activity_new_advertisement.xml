@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_back_128"
+            android:padding="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@id/img_back"
+            android:layout_height="wrap_content"
+            android:text="Nouvelle petite annonce"
+            android:textSize="@dimen/textsize_normal"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/txt_next"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/textsize_small"
+            android:gravity="center"
+            android:text="Publier"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_user_image"
+                    android:layout_centerVertical="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+                <RelativeLayout
+                    android:layout_toRightOf="@id/img_user_image"
+                    android:layout_toEndOf="@id/img_user_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_normal"/>
+
+                    <TextView
+                        android:id="@+id/txt_annonce_sur"
+                        android:layout_below="@id/txt_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_small"
+                        android:text="Annonce sur Marketplace"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_images"
+                android:layout_below="@id/rl_user_info"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/rectangle_images_drop">
+
+                <RelativeLayout
+                    android:id="@+id/rl_add_pictures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/img_add_pictures"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_pencil"/>
+
+                    <TextView
+                        android:id="@+id/txt_add_pictures"
+                        android:layout_toRightOf="@id/img_add_pictures"
+                        android:layout_toEndOf="@id/img_add_pictures"
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ajouter des photos"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_titre_annonce"
+                android:layout_below="@id/rl_images"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_titre_annonce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Titre"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="@dimen/textsize_small"
+                    android:background="@android:color/transparent"
+                    android:lines="1"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_prix"
+                android:layout_below="@+id/til_edit_titre_annonce"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_prix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="@dimen/textsize_small"
+                    android:text="Prix"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_categorie"
+                android:layout_below="@+id/til_edit_prix"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_categorie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="@dimen/textsize_small"
+                    android:hint="Catégorie"
+                    android:background="@android:color/transparent"
+                    android:lines="1"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_lieu"
+                android:layout_below="@+id/til_edit_categorie"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_lieu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="@dimen/textsize_small"
+                    android:hint="Lieu"
+                    android:background="@android:color/transparent"
+                    android:lines="1"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_description"
+                android:layout_below="@+id/til_edit_lieu"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_small"
+                    android:hint="Description"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_edit_hashtag"
+                android:layout_below="@+id/til_edit_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rectangle_images_drop"
+                android:padding="15dp">
+
+                <EditText
+                    android:id="@+id/edit_hashtag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Mots-clés"
+                    android:textSize="@dimen/textsize_small"
+                    android:background="@android:color/transparent"
+                    android:lines="1"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

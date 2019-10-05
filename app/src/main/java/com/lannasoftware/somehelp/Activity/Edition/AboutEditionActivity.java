@@ -4,14 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +28,7 @@ import java.util.Map;
 
 public class AboutEditionActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String TAG = "firebase_aparcar";
+    String TAG = "firebase_AboutEditionActivity";
 
     ImageView img_validation;
     TextInputLayout til_edit_about;
@@ -36,8 +39,8 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
 
     FirebaseFirestore dbFirestore;
     DAOUser cDaoUser;
-    User currentUserSQLite;
-    String sUserSQLiteIdFirestore;
+    User currentSQLiteUser;
+    String sUserIdFirestore;
 
     String sContentAbout;
 
@@ -61,8 +64,8 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
 
         cDaoUser = new DAOUser(mContext);
         cDaoUser.Open();
-        currentUserSQLite = cDaoUser.GetUserById(1);
-        sUserSQLiteIdFirestore = currentUserSQLite.getsIdFirestore();
+        currentSQLiteUser = cDaoUser.GetUserById(1);
+        sUserIdFirestore = currentSQLiteUser.getsIdFirestore();
         cDaoUser.Close();
 
         FillInformationsAboutUser();
@@ -86,11 +89,11 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
         cDaoUser = new DAOUser(mContext);
         cDaoUser.Open();
 
-        currentUserSQLite = cDaoUser.GetUserById(1);
+        currentSQLiteUser = cDaoUser.GetUserById(1);
 
-        sInitialAbout = currentUserSQLite.getsAbout();
+        sInitialAbout = currentSQLiteUser.getsAbout();
 
-        sContentAbout = currentUserSQLite.getsAbout();
+        sContentAbout = currentSQLiteUser.getsAbout();
 
         edit_about.setText(sContentAbout);
 
@@ -104,12 +107,12 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
             cDaoUser = new DAOUser(mContext);
             cDaoUser.Open();
 
-            if(sUserSQLiteIdFirestore != null)
+            if(sUserIdFirestore != null)
             {
                 dbFirestore = FirebaseFirestore.getInstance();
 
                 // Update an existing document
-                DocumentReference docRef = dbFirestore.collection("users").document(sUserSQLiteIdFirestore);
+                DocumentReference docRef = dbFirestore.collection("users").document(sUserIdFirestore);
 
                 // Update age and favorite color
                 Map<String, Object> updates = new HashMap<>();
@@ -119,7 +122,7 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
                     @Override
                     public void onSuccess(Void aVoid) {
 
-                        cDaoUser.UpdateAbout(currentUserSQLite, sContentAbout);
+                        cDaoUser.UpdateAbout(currentSQLiteUser, sContentAbout);
 
                         cDaoUser.Close();
 
@@ -130,6 +133,12 @@ public class AboutEditionActivity extends AppCompatActivity implements View.OnCl
                         setResult(Activity.RESULT_OK, returnIntent);
                         finish();
 
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
                     }
                 });
             }

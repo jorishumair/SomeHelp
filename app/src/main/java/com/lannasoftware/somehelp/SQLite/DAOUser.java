@@ -27,6 +27,7 @@ public class DAOUser {
             MySQLiteHelper.COL_USER_EMAIL,
             MySQLiteHelper.COL_USER_TELEPHONE,
             MySQLiteHelper.COL_USER_PIECE_IDENTITE,
+            MySQLiteHelper.COL_USER_MODE_HOST,
             MySQLiteHelper.COL_USER_LANGUE
     };
 
@@ -59,6 +60,7 @@ public class DAOUser {
         values.put(MySQLiteHelper.COL_USER_EMAIL,    cEntity.getsEmail());
         values.put(MySQLiteHelper.COL_USER_TELEPHONE,    cEntity.getsTelephone());
         values.put(MySQLiteHelper.COL_USER_PIECE_IDENTITE,    cEntity.getsPieceIdentite());
+        values.put(MySQLiteHelper.COL_USER_MODE_HOST,    cEntity.getsModeHost());
         values.put(MySQLiteHelper.COL_USER_LANGUE,    cEntity.getsLangue());
 
         long insertId = cDatabase.insert(MySQLiteHelper.TABLE_USER, null, values);
@@ -69,7 +71,7 @@ public class DAOUser {
         User newUser = new User (cEntity.getsLastname(), cEntity.getsFirstname(), cEntity.getsStayConnected(),
                                 cEntity.getsMemberSince(), cEntity.getsIdFirestore(), cEntity.getsAbout(),
                                 cEntity.getsSexe(), cEntity.getsVille(), cEntity.getsEmail(), cEntity.getsTelephone(),
-                                cEntity.getsPieceIdentite(), cEntity.getsLangue());
+                                cEntity.getsPieceIdentite(), cEntity.getsModeHost(), cEntity.getsLangue());
 
         newUser.setlId(insertId);
 
@@ -87,7 +89,7 @@ public class DAOUser {
         User user = new User (cursor.getString(1), cursor.getString(2), cursor.getString(3),
                 cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7),
                 cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11),
-                cursor.getString(12));
+                cursor.getString(12), cursor.getString(13));
 
         user.setlId(cursor.getLong(0));
 
@@ -168,6 +170,12 @@ public class DAOUser {
     public void UpdateAbout(User user, String s) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COL_USER_ABOUT, s);
+        cDatabase.update(MySQLiteHelper.TABLE_USER, values, MySQLiteHelper.COL_USER_ID + " =? ", new String[] { String.valueOf(user.getlId()) });
+    }
+
+    public void UpdateModeHost(User user, String s) {
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COL_USER_MODE_HOST, s);
         cDatabase.update(MySQLiteHelper.TABLE_USER, values, MySQLiteHelper.COL_USER_ID + " =? ", new String[] { String.valueOf(user.getlId()) });
     }
 }

@@ -10,4 +10,6 @@
     <color name="colorGoogleGreen">#26A69A</color>
     <color name="colorAccent">#ff6f60</color>
     <color name="colorBackground">#fcfdff</color>
+    <color name="colorGrayMiddleLight">#a0a1a6</color>
+
 </resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:id="@+id/rl_profil_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_pressed"
+        android:minHeight="150dp"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_grand_message"/>
+
+            <TextView
+                android:id="@+id/txt_show_profil"
+                android:layout_below="@id/txt_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_normal"
+                android:text="@string/voir_profil"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_user_image"
+            android:layout_alignParentRight="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_separator_1"
+        android:layout_below="@id/rl_profil_header"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/colorGrayLight"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_change_mode"
+        android:layout_below="@id/rl_separator_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_pressed"
+        android:minHeight="60dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txt_change_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_separator_2"
+        android:layout_below="@id/rl_change_mode"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/colorGrayLight"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_logout"
+        android:layout_below="@id/rl_separator_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_pressed"
+        android:minHeight="60dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txt_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_centerVertical="true"
+            android:text="@string/se_deconnecter"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_separator_3"
+        android:layout_below="@id/rl_logout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/colorGrayLight"/>
+
+</RelativeLayout>
