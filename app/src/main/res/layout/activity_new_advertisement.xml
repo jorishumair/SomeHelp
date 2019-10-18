@@ -87,34 +87,14 @@
                 android:layout_height="200dp"
                 android:background="@drawable/rectangle_images_drop">
 
-                <RelativeLayout
-                    android:id="@+id/rl_add_pictures"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
-
-                    <ImageView
-                        android:id="@+id/img_add_pictures"
-                        android:layout_centerVertical="true"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_pencil"/>
-
-                    <TextView
-                        android:id="@+id/txt_add_pictures"
-                        android:layout_toRightOf="@id/img_add_pictures"
-                        android:layout_toEndOf="@id/img_add_pictures"
-                        android:layout_marginLeft="5dp"
-                        android:layout_centerVertical="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ajouter des photos"/>
-
-                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </RelativeLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_titre_annonce"
                 android:layout_below="@id/rl_images"
                 android:layout_marginTop="15dp"
@@ -129,13 +109,14 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:hint="Titre"
+                    android:inputType="textCapSentences"
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/textsize_small"
                     android:background="@android:color/transparent"
                     android:lines="1"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_prix"
                 android:layout_below="@+id/til_edit_titre_annonce"
                 android:layout_marginTop="15dp"
@@ -150,11 +131,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/textsize_small"
-                    android:text="Prix"
+                    android:hint="Prix"
+                    android:inputType="numberDecimal"
                     android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_categorie"
                 android:layout_below="@+id/til_edit_prix"
                 android:layout_marginTop="15dp"
@@ -171,11 +153,12 @@
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/textsize_small"
                     android:hint="Catégorie"
+                    android:inputType="textCapSentences"
                     android:background="@android:color/transparent"
                     android:lines="1"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_lieu"
                 android:layout_below="@+id/til_edit_categorie"
                 android:layout_marginTop="15dp"
@@ -190,13 +173,14 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:layout_marginBottom="5dp"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/textsize_small"
                     android:hint="Lieu"
                     android:background="@android:color/transparent"
                     android:lines="1"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_description"
                 android:layout_below="@+id/til_edit_lieu"
                 android:layout_marginTop="15dp"
@@ -212,10 +196,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/textsize_small"
                     android:hint="Description"
+                    android:inputType="textCapSentences"
                     android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_edit_hashtag"
                 android:layout_below="@+id/til_edit_description"
                 android:layout_width="match_parent"
@@ -233,7 +218,7 @@
                     android:textSize="@dimen/textsize_small"
                     android:background="@android:color/transparent"
                     android:lines="1"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
 

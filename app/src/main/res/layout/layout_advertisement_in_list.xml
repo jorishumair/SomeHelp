@@ -5,10 +5,10 @@
     android:background="#FFF"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         card_view:cardBackgroundColor="@android:color/white"
         card_view:cardElevation="4sp"
         card_view:cardUseCompatPadding="true"
@@ -18,79 +18,78 @@
             android:id="@+id/rl_main"
             android:background="#fff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/rl_image"
+                android:id="@+id/rl_advertisement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_medium"/>
 
                 <ImageView
-                    android:id="@+id/img"
-                    android:layout_height="250dp"
+                    android:id="@+id/img_advertisement"
+                    android:layout_below="@id/txt_title"
                     android:layout_width="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:scaleType="centerCrop"/>
+                    android:layout_height="200dp" />
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    android:layout_below="@id/img_advertisement"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/textsize_small"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_description"
+                    android:layout_below="@id/txt_price"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/textsize_normal"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_location"
+                    android:layout_below="@id/txt_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_rect"
+                android:id="@+id/rl_user_info"
+                android:layout_below="@+id/rl_advertisement"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_alignBottom="@+id/rl_image"
-                android:layout_centerHorizontal="true">
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_user_image"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-
-                    <RelativeLayout
-                        android:id="@+id/rl_pseudo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/txt_nom_personne"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:textColor="#FFF"
-                            android:textSize="16sp"
-                            android:maxLength="12"/>
-
-                        <ImageView
-                            android:id="@+id/img_en_ligne"
-                            android:layout_toRightOf="@+id/txt_nom_personne"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"/>
-
-                        <ImageView
-                            android:id="@+id/img_status"
-                            android:layout_toRightOf="@id/img_en_ligne"
-                            android:layout_width="13dp"
-                            android:visibility="gone"
-                            android:layout_height="13dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_centerVertical="true"/>
-
-                    </RelativeLayout>
+                    android:layout_toLeftOf="@id/img_user_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/txt_emplacement"
-                        android:layout_below="@id/rl_pseudo"
+                        android:id="@+id/txt_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFF"
-                        android:textSize="12sp"
-                        android:maxLines="1"/>
+                        android:textSize="@dimen/textsize_small"/>
+
+                    <TextView
+                        android:id="@+id/txt_annonce_sur"
+                        android:layout_below="@id/txt_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_small"
+                        android:text="Annonce sur Marketplace"/>
 
                 </RelativeLayout>
 
@@ -98,6 +97,6 @@
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

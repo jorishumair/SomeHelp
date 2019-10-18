@@ -1,24 +1,13 @@
 package com.lannasoftware.somehelp.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.lannasoftware.somehelp.Activity.Authentification.SignInActivity;
 import com.lannasoftware.somehelp.Helper.HelperApp;
 import com.lannasoftware.somehelp.R;
-import com.lannasoftware.somehelp.SQLite.DAOUser;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class SplashScreenGoodbye extends AppCompatActivity {
 

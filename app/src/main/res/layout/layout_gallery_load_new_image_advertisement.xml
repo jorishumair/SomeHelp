@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f8f9fc">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/rl_add_pictures"
+            android:layout_below="@+id/recycler_images"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/img_add_pictures"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_pencil"/>
+
+            <TextView
+                android:id="@+id/txt_add_pictures"
+                android:layout_toRightOf="@id/img_add_pictures"
+                android:layout_toEndOf="@id/img_add_pictures"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ajouter des photos"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
